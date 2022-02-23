@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="root">
+      <!--Render code React-js-->
+    </div>
+
+    <!-- Cargar React. -->
+    <!-- Nota: cuando se despliegue, reemplazar "development.js" con "production.min.js". -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- Cargamos nuestro componente de React. -->
+    <script type="text/babel">
+// nota cada codigo que veas documentado de aca para abajo
+// seran diferentes formas de realizarlo con jsx los coloco para
+// que podamos probar y mirar diferentes formas de como podriamos realizarlos
+// los 12 ejercicios
+
+// 0. guardado de datos simple
+const data = {
+  title: "Registro en nuestra tienda",
+  text1: "Nombre de usuario",
+  text2: "Email",
+  text3: "Edad",
+  text4: "Género",
+  text5: "Recomendado por:",
+  text6: "Comentarios:",
+  text7: "Acepto terminos y condiciones:",
+  button1: "Registrar",
+  list1: ["Google", "Facebook", "Instagram"]
+}
+
+let select_aux = (array_aux) => {
+  return(
+    <select>
+      {array_aux.map(function(company, index){
+        return <option key={index}>{company}</option>
+      })}
+    </select>
+  )
+}
+
+let element = (
+  <form>
+    <h1>{data.title}</h1>
+    <label>{data.text1}</label>
+    <input type="text" name="name" placeholder="Ej: luis"/>
+    <br/>
+    <label>{data.text2}</label>
+    <input type="text" name="name" placeholder="Ej: luis@gmail.com"/>
+    <br/>
+    <label>{data.text3}</label>
+    <input type="number" name="name" placeholder="Ej: 21"/>
+    <br/>
+    <label>{data.text4}</label>
+    <input type="radio" name=""/> Masculino
+    <br/>
+    <input type="radio" name=""/> Femenino
+    <br/>
+    <label>{data.text5}</label>
+    {select_aux(data.list1)}
+    <br/>
+    <label>{data.text6}</label>
+    <textarea row="20" cols="20"></textarea>
+    <br/>
+    <label>{data.text7}</label>
+    <input type="checkbox"/>
+    <br/>
+    <button>{data.button1}</button>
+  </form>
+);
+
+
+// Renderiamos o pintamos
+ReactDOM.render(
+  element,// estructura jsx para pintar
+  document.getElementById('root')// elemento donde se pintara
+);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="root">
+      <!--Render code React-js-->
+    </div>
+
+    <!-- Cargar React. -->
+    <!-- Nota: cuando se despliegue, reemplazar "development.js" con "production.min.js". -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- Cargamos nuestro componente de React. -->
+    <script type="text/babel">
+// nota cada codigo que veas documentado de aca para abajo
+// seran diferentes formas de realizarlo con jsx los coloco para
+// que podamos probar y mirar diferentes formas de como podriamos realizarlos
+// los 12 ejercicios
+
+// 0. guardado de datos simple
+const data = {
+  title_1: "Plato de la semana",
+  title_2: "Berenjenas fritas",
+  paragraph_1: "Comensales: 4 personas",
+  paragraph_2: "Tiempo de reparación: 10 minutos",
+  paragraph_3: "Tiempo de cocción: 12 minutos"
+}
+
+const first_list = {
+  name_list: 'Ingredientes:',
+  list1: '4 berenjenas',
+  list2: 'Sal',
+  list3: 'Pimienta',
+  list4: '4 cucharadas de harina y aceite.'
+}
+
+const second_list = {
+  name_list2: 'Preparación:',
+  list5: 'Lavar las berenjenas',
+  list6: 'Cortalas en rodajas',
+  list7: 'Espolvorearlas con sal',
+  list8: 'Dejar que suleten el agua durante 30 minutos.',
+  list9: 'Enharizarlas, ponerlas a freir durante 5 minutos en aceite bien caliente.'
+}
+
+// 1.
+const title_x = <h1>{data.title_1}</h1>;
+const subtitle_x = <h2>{data.title_2}</h2>;
+const paragraph_x = <p>{data.paragraph_1}</p>;
+const paragraph_2x = <p>{data.paragraph_2}</p>;
+const paragraph_3x = <p>{data.paragraph_3}</p>;
+
+const namelist_x = <p>{first_list.name_list}</p>;
+const list_1x = <p>{first_list.list1}</p>;
+const list_2x = <p>{first_list.list2}</p>;
+const list_3x = <p>{first_list.list3}</p>;
+const list_4x = <p>{first_list.list4}</p>;
+
+const namelist_2x = <p>{second_list.name_list2}</p>;
+const list_5x = <p>{second_list.list5}</p>;
+const list_6x = <p>{second_list.list6}</p>;
+const list_7x = <p>{second_list.list7}</p>;
+const list_8x = <p>{second_list.list8}</p>;
+const list_9x = <p>{second_list.list9}</p>;
+
+const element = (
+  <div>
+    {title_x}
+    {subtitle_x}
+    {paragraph_x}
+    {paragraph_2x}
+    {paragraph_3x}
+    <br/>
+    {namelist_x}
+    {list_1x}
+    {list_2x}
+    {list_3x}
+    {list_4x}
+    <br/>
+    {namelist_2x}
+    {list_5x}
+    {list_6x}
+    {list_7x}
+    {list_8x}
+  </div>
+);
+
+
+// Renderiamos o pintamos
+ReactDOM.render(
+  element,// estructura jsx para pintar
+  document.getElementById('root')// elemento donde se pintara
+);
+    </script>
+  </body>
+</html>

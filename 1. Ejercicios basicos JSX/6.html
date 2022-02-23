@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="root">
+      <!--Render code React-js-->
+    </div>
+
+    <!-- Cargar React. -->
+    <!-- Nota: cuando se despliegue, reemplazar "development.js" con "production.min.js". -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- Cargamos nuestro componente de React. -->
+    <script type="text/babel">
+// nota cada codigo que veas documentado de aca para abajo
+// seran diferentes formas de realizarlo con jsx los coloco para
+// que podamos probar y mirar diferentes formas de como podriamos realizarlos
+// los 12 ejercicios
+
+// 0. guardado de datos simple
+const data = {
+  title_1: "El Noticiero Next University",
+  title_2: "Programas de Tecnología",
+  sub_title_1: "Desarrollador Web",
+  text_1: "<b><em>University</em></b> lanza su programa de formularios <b>'desarrollador web'</b> con la facilidad de capacitar a personas en etc....",
+  sub_title_1: "Lorem ipsum",
+  text_1: "Lorem Ipsum <b><em>University</em></b> text of the printing and typesetting industry. Lorem Ipsum has <b>'desarrollador web'</b> the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make"
+}
+
+const element = (
+  <div>
+    <h1>{data.title_1}</h1>
+    <h2>{data.title_2}</h2>
+    <h3>{data.title_2}</h3>
+    <div dangerouslySetInnerHTML={{ __html: data.text_1 }} />
+  </div>
+);
+
+
+// Renderiamos o pintamos
+ReactDOM.render(
+  element,// estructura jsx para pintar
+  document.getElementById('root')// elemento donde se pintara
+);
+    </script>
+  </body>
+</html>

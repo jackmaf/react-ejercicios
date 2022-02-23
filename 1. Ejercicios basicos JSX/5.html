@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="root">
+      <!--Render code React-js-->
+    </div>
+
+    <!-- Cargar React. -->
+    <!-- Nota: cuando se despliegue, reemplazar "development.js" con "production.min.js". -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- Cargamos nuestro componente de React. -->
+    <script type="text/babel">
+// nota cada codigo que veas documentado de aca para abajo
+// seran diferentes formas de realizarlo con jsx los coloco para
+// que podamos probar y mirar diferentes formas de como podriamos realizarlos
+// los 12 ejercicios
+
+// 0. guardado de datos simple
+const data = {
+  title: "Página inicial de Juan Tuesta",
+  text_1: "Bienvenido a mi página personal. Soy un alumno de la Universidad de Deusto y esta es mi página inicial, con la lista de mis enlaces favoritos y otra información de interés",
+  subtitle_1: "Enlaces favoritos",
+  list1: [{name: "Paginas personales", url:"https://google.com"}, {name: "Páginas de referencia", url:""}, {name: "Portales", url:""}, {name: "Publicaciones", url:""}],
+  subtitle_2: "Páginas personales",
+  list2: [ {name: 'Futbolistas', jugadores: ["James", "Messi", "Ronaldo"]}, 
+           {name: 'Billaristas', jugadores: []},
+           {name: 'Basketbolistas', jugadores: []},
+           {name: 'Bailarines', jugadores: []}
+         ],
+  subtitle_3: "Navegadores",
+  list3: ["Chrome", "Safari", "Firefox", "Edge"],
+  subtitle_4: "Portales",
+  list4: ["Inicia", "Telepolis", "Ciudades", "Terra"],
+  subtitle_5: "Office",
+  list5: ["Word", "Excel", "PDF", "Power point", "Imagenes"],
+  text_2: "Juan Tuesta, Universidad de Deusto, marzo 2002"
+}
+
+function first_list(array_aux){
+  return (
+    <ol>
+      {array_aux.map(function(data){
+        if(data.url == ''){
+          return <li>{data.name}</li>
+        }else{
+          return <li><a href={data.url}>{data.name}</a></li>
+        }
+      })}
+    </ol>
+  );
+}
+
+function second_list(array_aux){
+  return (
+    <ol>
+      {array_aux.map(function(data){
+        return (
+          <li>{data.name}
+            <ul>
+              {data.jugadores.map(function(jug){  
+                return <li>{jug}</li>    
+              })}
+            </ul>   
+          </li>
+        );
+      })}
+    </ol>
+  );
+}
+
+function other_list(array_aux){
+  return (
+    <ol>
+      {array_aux.map(function(data){ 
+        return <li>{data}</li>   
+      })}
+    </ol>
+  );
+}
+
+const element = (
+  <div>
+    <h1>{data.title}</h1>
+    <br/>
+    <h2>{data.text_1}</h2>
+    <br/>
+    <h2>{data.subtitle_1}</h2>
+    {first_list(data.list1)}
+    <hr/>
+    <h2>{data.subtitle_2}</h2>
+    {second_list(data.list2)}
+    <hr/>
+    <h2>{data.subtitle_3}</h2>
+    {other_list(data.list3)}
+    <hr/>
+    <h2>{data.subtitle_4}</h2>
+    {other_list(data.list4)}
+    <hr/>
+    <h2>{data.subtitle_5}</h2>
+    {other_list(data.list5)}
+    <hr/>
+    <p>{data.text_2}</p>
+  </div>
+);
+
+// Renderiamos o pintamos
+ReactDOM.render(
+  element,// estructura jsx para pintar
+  document.getElementById('root')// elemento donde se pintara
+);
+    </script>
+  </body>
+</html>

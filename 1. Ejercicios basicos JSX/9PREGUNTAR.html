@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="root">
+      <!--Render code React-js-->
+    </div>
+    <!-- columnas: ["AIRLAN", "355", "ATERRIZO", "2:45PM", "3"] -->
+    <!-- Cargar React. -->
+    <!-- Nota: cuando se despliegue, reemplazar "development.js" con "production.min.js". -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- Cargamos nuestro componente de React. -->
+    <script type="text/babel">
+// nota cada codigo que veas documentado de aca para abajo
+// seran diferentes formas de realizarlo con jsx los coloco para
+// que podamos probar y mirar diferentes formas de como podriamos realizarlos
+// los 12 ejercicios
+
+// 0. guardado de datos simple
+const data = {
+  title: "Cartelera de vuelos - Aropuerto el mirador",
+  text1: "Llegadas",
+  text2: "Salidas"
+}
+
+const list1 = [{ 
+  filas: ['Aerolinea', 'Nro. vuelo', 'Estatus', 'Hora estimada', 'Puerta'], 
+  columnas: [
+    {information: ["AIRLAN", "355", "ATERRIZO", "2:45PM", "3"]},
+    {information: ["AVIANCA", "255", "ATERRIZO", "3:45PM", "6"]}
+  ]
+}];
+
+
+function first_list(){
+  return (
+    <table border="1">
+      <thead>
+        <tr>
+          {list1.map(function(data, i){
+            return <td key={i}>{data.filas}</td>
+          })}
+        </tr>
+      </thead>
+      <tbody>
+        {list1[0].columnas.map(function(columna, index_row){
+          <tr key={index_row}>
+            {columna.information.map(function(c, index_col){
+              return <td key={index_col}>{c}</td>
+            
+            })}
+          </tr>
+        })}
+      </tbody>
+    </table>
+  );
+}
+
+const element = (
+  <div>
+    <h1>{data.title}</h1>
+    <h2>{data.text1}</h2>
+    {first_list()}
+  </div>
+);
+
+// Renderiamos o pintamos
+ReactDOM.render(
+  element,// estructura jsx para pintar
+  document.getElementById('root')// elemento donde se pintara
+);
+    </script>
+  </body>
+</html>
